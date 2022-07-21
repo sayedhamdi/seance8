@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        .carousel{
+            position: relative;
+            width: 100vw;
+            height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .carousel-inner{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .slide{
+            
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        .carousel-button button{
+            background:0;
+            border:0;
+            margin:20px;
+        }
+        .carousel-button button:hover{
+            background:0;
+            border:0;
+            background: rgba(0,0,0,0.4);
+            border-radius:50%;
+        }
+        .carousel-button button img{
+            width:50px;
+        }
+        .carousel-button{
+            position:absolute;
+            display:flex;
+            z-index:2;
+            width:100%;
+            justify-content: space-between;
+            top:50%;
+        }
+        .indicators{
+            position: absolute;
+            bottom: 0;
+            left:50%;
+            display: flex;
+            transform: translate(-50%,-100%);
+            
+        }
+        .indicator{
+            width:30px;
+            height:30px;
+            border-radius: 50%;
+            border:1px solid black;
+            margin: 0 10px;
+        }
+        .active{
+            background:black;
+        }
+        .activeSlide{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="slide">
+                <img src="https://m.media-amazon.com/images/M/MV5BN2Y1ODhkMTctYWVmYy00ZmNkLTgyNTYtZWQxNWY3MTVlZmFkXkEyXkFqcGdeQXVyNjk5MjA5NDM@._V1_.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="https://www.espacemanager.com/sites/default/files/field/image/choufli_hall.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="https://dg31sz3gwrwan.cloudfront.net/fanart/371172/1396866-0-q80.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="https://i.ytimg.com/vi/5YxWbvH5FV4/maxresdefault.jpg" alt="">
+            </div>  
+        </div>
+        <div class="carousel-button">
+            <button class="left">
+                <img  src="http://cdn.onlinewebfonts.com/svg/img_68882.png" style="transform:rotateY(180deg);"alt="">
+            </button>
+            <button class="right">
+                <img  src="http://cdn.onlinewebfonts.com/svg/img_68882.png" alt="">
+            </button>
+        </div>
+        <div class="indicators">    
+            <div class="indicator"></div>
+            <div class="indicator "></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+    </div>
+
+    <script>
+        let slides = document.querySelectorAll(".slide");
+        let indicators = document.querySelectorAll(".indicator");
+
+        //initaliser le slide a 0
+        slides.forEach(slide=>{
+            slide.style.display="none"
+        })
+        
+        indicators.forEach(function(indicator){
+            indicator.style.background="white"
+        })
+
+        slides[0].style.display = "block";
+            indicators[0].style.background = "black";
+        let index = 0
+        setInterval(()=>{
+            slides[index].style.display = "none";
+            indicators[index].style.background = "white";
+            console.log(index)
+            if(index +1 >= slides.length){
+                index = 0;
+            }else{
+                index++;
+            }
+            slides[index].style.display = "block";
+            indicators[index].style.background = "black";
+            
+        },3000)
+        
+        document.querySelector(".right").onclick = ()=>{
+            slides[index].style.display = "none";
+            indicators[index].style.background = "white";
+            console.log(index)
+            if(index +1 >= slides.length){
+                index = 0;
+            }else{
+                index++;
+            }
+            slides[index].style.display = "block";
+            indicators[index].style.background = "black";
+        }
+        document.querySelector(".left").onclick = ()=>{
+            slides[index].style.display = "none";
+            indicators[index].style.background = "white";
+            console.log(index)
+            if(index - 1 < 0){
+                index = slides.length -1;
+            }else{
+                index--;
+            }
+            slides[index].style.display = "block";
+            indicators[index].style.background = "black";
+        }
+
+        console.log(slides)
+    </script>
+</body>
+</html>

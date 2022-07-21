@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background: red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">1</div>
+    <br />
+    <script>
+      let box = document.querySelector(".box");
+      /*
+      function click() {
+        console.log("nzelt");
+      }
+      box.onclick = function () {
+        console.log("nzelt");
+      }*/
+      function click() {
+        console.log("nzelt");
+      }
+
+      box.addEventListener("click", () => {
+        console.log("red zone clicked");
+      });
+      box.addEventListener("mouseenter", () => {
+        console.log("red zone entered");
+      });
+      box.addEventListener("mouseleave", () => {
+        console.log("red zone exited");
+      });
+      document.addEventListener("keypress", keypress);
+      let x = 0;
+
+      let pas = 10;
+      function keypress(e) {
+        if (e.key == "d") {
+          x += pas;
+          box.style.marginLeft = x + "px";
+        }
+        if (e.key == "q") {
+          x -= pas;
+          box.style.marginLeft = x + "px";
+        }
+        console.log("nzelt ala clavier");
+      }
+      let i = 0;
+      function affichi() {
+        i++;
+        console.log(i);
+      }
+      function avanci() {
+        x += 100;
+        box.style.marginLeft = x + "px";
+      }
+      function wakher() {
+        x -= pas;
+        box.style.marginLeft = x + "px";
+      }
+      // 1s = 1000ms
+      avanci();
+      setTimeout(wakher, 1000);
+    </script>
+  </body>
+</html>

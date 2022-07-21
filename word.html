@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <script src="word.js" defer></script>
+    <style>
+      .active {
+        background: black;
+        color: white;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+      }
+      .menu {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .title {
+        font-size: 60px;
+        color: blue;
+        font-family: "Courier New", Courier, monospace;
+      }
+      button,
+      input,
+      select {
+        height: 40px;
+        background: none;
+        color: black;
+        border: 3px solid black;
+        font-size: 30px;
+      }
+      textarea {
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Word bel JS</div>
+      <div class="menu">
+        <button id="left"><i class="fa-solid fa-align-left"></i></button>
+        <button id="center"><i class="fa-solid fa-align-center"></i></button>
+        <button id="right"><i class="fa-solid fa-align-right"></i></button>
+        <select id="size">
+          <option>11px</option>
+          <option>12px</option>
+          <option>13px</option>
+          <option>14px</option>
+          <option>15px</option>
+          <option>16px</option>
+          <option>17px</option>
+          <option>25px</option>
+          <option>30px</option>
+        </select>
+        <select id="font">
+          <option>Georgia, serif</option>
+          <option>"Gill Sans", sans-serif</option>
+          <option>sans-serif</option>
+          <option>serif</option>
+          <option>cursive</option>
+          <option>system-ui</option>
+        </select>
+        <button id="bold"><b>Bold</b></button>
+        <button id="italic"><i>Italic</i></button>
+        <button id="underline"><u>underline</u></button>
+        <input type="color" id="color" />
+      </div>
+      <div>
+        <textarea id="text" cols="100" rows="10"></textarea>
+      </div>
+    </div>
+  </body>
+</html>
